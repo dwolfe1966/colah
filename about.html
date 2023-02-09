@@ -53,22 +53,113 @@
 
 <style>
 
-.profile {
-    background-color:rgba(245,245,245,.9);
-    width:45%;
-    margin-left:50%;
-    margin-top:5%;
-    padding:20px;
-    border-radius: 20px;
+.profile-container {
+    width: 100%;
+    min-height: calc(100vh - 40px);
+    margin: 0px;
+    display: grid;
+
+}
+
+
+.profile-container .profile-background {
+    grid-area: bg;
+    width: 100%;
+    height: 100%;
+}
+
+
+.profile-container  .profile {
+    grid-area: text;
+}
+
+/* @media (min-width: 900px) {
+    .profile-container {
+        grid-template-columns: [bg-start] 6fr [text-start] 5fr [text-end bg-end];
+        grid-template-rows: [bg-start] 1fr [text-start] auto [text-end] 2fr [bg-end];
+    }
+    .profile-container  .profile {
+        background-color:rgba(245,245,245,.9);
+        width: 80%;
+        height: min-content;
+        min-width: 300px;
+        max-width: 500px;
+        padding:20px;
+        padding-right: 10px;
+        margin: auto;
+        border-radius: 20px;
+    }
+    .profile-container .profile-background {
+        background: #ffffff url('images/portrait-4.jpg') no-repeat 7% 40%;
+        background-size: cover;
+    }
+} */
+
+
+@media (min-width: 900px) {
+    .profile-container {
+        grid-template-rows: [bg-start text-start] 1fr [text-end bg-end];
+        grid-template-columns: [bg-start] 2fr [bg-end text-start] 2fr [text-end];
+    }
+    .profile-container  .profile {
+        background-color:#222;
+        color: #DDD;
+        width: 100%;
+        padding: 80px;
+        padding-top: 80px;
+        padding-right: 60px;
+        margin: 0px;
+        border-radius: 0px;
+    }
+    .profile-container  .profile a {
+        color: #FFF;
+        font-weight: bold;
+    }
+    .profile-container .profile-background {
+        background: #ffffff url('images/portrait-7.jpeg') no-repeat 40% 10%;
+        background-size: cover;
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .profile-container {
+        grid-template-columns: [bg-start text-start] 1fr [text-end bg-end];
+        grid-template-rows: [bg-start] auto 1fr [bg-end text-start] auto [text-end];
+    }
+    .profile-container  .profile {
+        background-color:#222;
+        color: #DDD;
+        width: 100%;
+        padding: 40px;
+        margin: 0px;
+        border-radius: 0px;
+    }
+    .profile-container  .profile a {
+        color: #FFF;
+        font-weight: bold;
+    }
+    .profile-container .profile-background {
+        background: #ffffff url('images/portrait-7.jpeg') no-repeat 40% 10%;
+        background-size: cover;
+        width: 100%;
+        min-height: 90vw;
+    }
 }
 
 .profile h2 {
     margin-top: 10px;
-    font-size: 175%;
+    font-size: 160%;
 }
 
 .profile p {
-    font-size: 150%;
+    font-size: 130%;
+    text-align: left !important;
+}
+
+p {
+    margin-bottom: 15px !important;
 }
 
 
@@ -77,9 +168,8 @@
 
     </head>
 
-    <body style="background: #ffffff url('images/portrait-min.jpg') no-repeat center center fixed;-moz-background-size:cover;-webkit-background-size:cover;-o-background-size:cover;background-size:cover; min-width: 394px;">
-        <div id="wrap">
-            <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <body style="background: #222; min-width: 394px; display: flex; flex-direction: column">
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0px;">
                 <div class="container">
                     <!--Toggle header for mobile-->
                     <div class="navbar-header">
@@ -101,21 +191,40 @@
                     </div><!--/.nav-collapse -->
                 </div>
             </nav>
-
-          
-
+        <div class="profile-container">
+            <div class="profile-background"></div>
             <div class="profile">
-                <h2 >Christopher Olah</h2>
+                <h2>Christopher Olah</h2>
+                
 
-                <p>A wandering machine learning researcher, bouncing between groups. I want to understand things clearly, and explain them well.</p>
+                <p>
+                    I work on reverse engineering artificial neural networks into human understandable algorithms.
+                    </p>
+                    <p>
+                        I'm one of the co-founders of <a href="http://anthropic.com/">Anthropic</a>, an AI lab focused on the
+                        safety of large models.
+                    
+                        Previously, I led interpretability research at <a href="https://openai.com/">OpenAI</a>, worked at <a
+                            href="https://research.google/teams/brain/">Google Brain</a>, and co-founded <a
+                            href="https://distill.pub/">Distill</a>, a
+                        scientific journal focused on outstanding communication.
+                    </p>
 
-                <p style="text-align:center;"><a href="cv.pdf">Academic CV</a> - <a href="https://github.com/colah/">Github</a> - <a href="https://twitter.com/ch402">Twitter</a> - <a href="http://christopherolah.wordpress.com/">Old Blog</a></p>
+<p>
+    My blog should not be taken to reflect the views of any organization
+    I'm affiliated with.
+</p>
+<p><a href="https://twitter.com/ch402">Twitter</a> &nbsp-&nbsp <a
+        href="https://scholar.google.com/citations?user=6dskOSUAAAAJ&hl=en&oi=sra">Google Scholar</a></p>
+    </div>
+    </div>
+    
+    <!--           
+                                                                                                                                                                                                                                                                 -->
 
-            </div>
+                <!--<p style="text-align:center;"><a href="cv.pdf">Academic CV</a> - <a href="https://github.com/colah/">Github</a> - <a href="https://twitter.com/ch402">Twitter</a> - <a href="http://christopherolah.wordpress.com/">Old Blog</a></p>-->
 
-
-            <div class="col-md-4" id="toc-wrapper">
-            </div>  
+    
 
             <!--
             <div id="content">
